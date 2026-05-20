@@ -3,15 +3,15 @@ on:
   push:
     branches:
       - main
+
+
 jobs:
   test-runner:
     runs-on:
       - self-hosted
       - linux
       - x64
-      - pomme
-      - banane
-      - cerise
+
     steps:
       - name: Verification
         run: echo "Test de fonctionnement du Runner !"
@@ -22,3 +22,6 @@ jobs:
           hostname
           whoami
           uname -a
+          ip -4 address
+
+
