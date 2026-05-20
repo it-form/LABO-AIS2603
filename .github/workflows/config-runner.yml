@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: [self-hosted, linux, X64]
+    runs-on: [self-hosted, Linux, X64]
 
     steps:
       - name: Test SSH vers serveur Ansible
