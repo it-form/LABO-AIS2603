@@ -1,0 +1,20 @@
+name: Déploiement Ansible distant
+
+on:
+  push:
+    branches:
+      - PROD
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, Linux, X64]
+
+    steps:
+      - name: Test SSH vers serveur Ansible
+        run: |
+          ssh -o StrictHostKeyChecking=no user@srv-ansible "hostname"
+
+      - name: Lancer le playbook
+        run: |
+          ssh user@serveur-ansible \
+          "cd /opt/ansible && ansible-playbook -i inventory.ini config-ssh.yml"
